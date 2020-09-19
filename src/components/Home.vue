@@ -26,7 +26,7 @@
             v-for="meetup in meetups"
             :src="meetup.imageUrl"
             :key="meetup.creatorID"
-            @click="onLoadMeetup(meetup.creatorID)"
+            @click="onLoadMeetup(meetup.title)"
           >
             <div class="title">{{ meetup.title }}</div>
           </v-carousel-item>
@@ -52,8 +52,8 @@ export default {
     },
   },
   methods: {
-    onLoadMeetup(creatorID) {
-      this.$router.push("/meetups/" + creatorID);
+    onLoadMeetup(title) {
+      this.$router.push("/meetups/" + title);
     },
   },
 };
