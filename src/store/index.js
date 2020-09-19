@@ -63,13 +63,8 @@ export const store = new Vuex.Store({
         .get()
         .then((snapshot) => {
           snapshot.forEach((doc) => {
-            let eetups = doc.data();
-            eetups.id = doc.id;
-
-            const meetups = [];
-
-            meetups.push(eetups);
-
+            let meetups = doc.data();
+            meetups.creatorId = doc.creatorId;
             commit("setLoadedMeetups", meetups);
             commit("setLoading", false);
           });
