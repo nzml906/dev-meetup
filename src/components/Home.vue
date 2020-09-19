@@ -41,7 +41,6 @@
   </v-container>
 </template>
 
-
 <script>
 export default {
   computed: {
@@ -59,7 +58,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 .title {

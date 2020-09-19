@@ -161,9 +161,9 @@ export const store = new Vuex.Store({
       return state.loadedMeetups.slice(0, 5);
     },
     loadedMeetup(state) {
-      return (meetupId) => {
+      return (meetupTitle) => {
         return state.loadedMeetups.find((meetup) => {
-          return meetup.id === meetupId;
+          return meetup.title === meetupTitle;
         });
       };
     },

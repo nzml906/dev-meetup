@@ -30,7 +30,7 @@ export default new Router({
       beforeEnter: AuthGuard,
     },
     {
-      path: "/meetups/:id",
+      path: "/meetups/:title",
       name: "Meetup",
       props: true,
       component: Meetup,
