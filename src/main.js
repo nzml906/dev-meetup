@@ -22,13 +22,13 @@ new Vue({
   render: h => h(App),
   created() {
     firebase.initializeApp({
-      apiKey: 'AIzaSyCJ74YyBmSnblooY-jbzbjU2vV57QwVOds',
-      authDomain: 'dev-meet-f8326.firebaseapp.com',
-      databaseURL: 'https://dev-meet-f8326.firebaseio.com',
-      projectId: 'dev-meet-f8326',
-      storageBucket: 'dev-meet-f8326.appspot.com',
-      messagingSenderId: '821485982348',
-      appId: '1:821485982348:web:1389ba2c9fbd50151061a9'
+      apiKey: '',
+      authDomain: '',
+      databaseURL: '',
+      projectId: '',
+      storageBucket: '',
+      messagingSenderId: '',
+      appId: ''
     });
 
     firebase.auth().onAuthStateChanged(user => {
