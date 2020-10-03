@@ -5,9 +5,17 @@
         <v-btn large router to="/meetups" class="info">Explore Meetups</v-btn>
       </v-flex>
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-        <v-btn large router to="/meetup/new" class="info">Organize Meetup</v-btn>
+        <v-btn
+          large
+          router
+          to="/meetup/new"
+          class="info"
+          style="margin-left: 30px"
+          >Organize Meetup</v-btn
+        >
       </v-flex>
     </v-layout>
+
     <v-layout>
       <v-flex xs12 class="text-xs-center">
         <v-progress-circular
@@ -19,26 +27,28 @@
         ></v-progress-circular>
       </v-flex>
     </v-layout>
-    <v-layout row wrap class="mt-2" v-if="!loading">
+
+    <v-layout row wrap class="mt-15" v-if="!loading">
       <v-flex xs12>
-        <v-carousel style="cursor: pointer;">
+        <v-carousel
+          cycle
+          height="400"
+          hide-delimiter-background
+          show-arrows-on-hover
+          style="cursor: pointer;"
+        >
           <v-carousel-item
             v-for="meetup in meetups"
             :src="meetup.imageUrl"
             :key="meetup.creatorID"
             @click="onLoadMeetup(meetup.title)"
           >
-            <div class="title">{{ meetup.title }}</div>
+            <div class="display-3">{{ meetup.title }}</div>
           </v-carousel-item>
         </v-carousel>
       </v-flex>
-    </v-layout>
-    <v-layout row wrap class="mt-2">
-      <v-flex xs12 class="text-xs-center">
-        <p>Join our awesome meetups!</p>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    </v-layout></v-container
+  >
 </template>
 
 <script>
@@ -49,23 +59,12 @@ export default {
     },
     loading() {
       return this.$store.getters.loading;
-    },
+    }
   },
   methods: {
     onLoadMeetup(title) {
-      this.$router.push("/meetups/" + title);
-    },
-  },
+      this.$router.push('/meetups/' + title);
+    }
+  }
 };
 </script>
-
-<style scoped>
-.title {
-  position: absolute;
-  bottom: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 2em;
-  padding: 20px;
-}
-</style>

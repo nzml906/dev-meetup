@@ -90,26 +90,26 @@
 export default {
   data() {
     return {
-      title: "",
-      location: "",
-      imageUrl: "",
-      description: "",
+      title: '',
+      location: '',
+      imageUrl: '',
+      description: '',
       date: new Date(),
-      time: new Date(),
+      time: new Date()
     };
   },
   computed: {
     formIsValid() {
       return (
-        this.title !== "" &&
-        this.location !== "" &&
-        this.imageUrl !== "" &&
-        this.description !== ""
+        this.title !== '' &&
+        this.location !== '' &&
+        this.imageUrl !== '' &&
+        this.description !== ''
       );
     },
     submittableDateTime() {
       const date = new Date(this.date);
-      if (typeof this.time === "string") {
+      if (typeof this.time === 'string') {
         let hours = this.time.match(/^(\d+)/)[1];
         const minutes = this.time.match(/:(\d+)/)[1];
         date.setHours(hours);
@@ -119,7 +119,7 @@ export default {
         date.setMinutes(this.time.getMinutes());
       }
       return date;
-    },
+    }
   },
   methods: {
     onCreateMeetup() {
@@ -131,11 +131,11 @@ export default {
         location: this.location,
         imageUrl: this.imageUrl,
         description: this.description,
-        date: this.submittableDateTime,
+        date: this.submittableDateTime
       };
-      this.$store.dispatch("createMeetup", meetupData);
-      this.$router.push("/meetups");
-    },
-  },
+      this.$store.dispatch('createMeetup', meetupData);
+      this.$router.push('/meetups');
+    }
+  }
 };
 </script>
